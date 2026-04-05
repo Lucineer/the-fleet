@@ -14,23 +14,26 @@ We built 60+ self-contained AI applications — each a standalone Cloudflare Wor
 
 The fishing bot's engagement patterns become a module any vessel can load. The tutor's Socratic branching becomes a skill. The dungeon master's dice system becomes a component. Someone building a legal research tool picks up all three and combines them in a way none of the original authors imagined.
 
-**Some examples of cross-community synergy:**
+**Try it right now:** https://the-fleet.casey-digennaro.workers.dev — live playground, chat with any vessel, no API key needed.
+
+**Cross-community synergy examples:**
 
 - A tutor's "teach-don't-tell" engine → repurposed as a medical diagnosis tool that walks patients through symptoms instead of just listing them
 - A dungeon master's NPC memory system → becomes persistent context for customer support agents
 - A classroom's spaced repetition algorithm → becomes onboarding for new developers
 - A DM's pacing engine → becomes narrative structure for creative writing
 - A fishing bot's engagement hooks → become engagement patterns for educational content
+- A finance tool's confidence scoring → becomes uncertainty quantification for medical AI
 
 **The tech:**
 
-- Every vessel is a standalone git repo — fork it, customize it, deploy it to Cloudflare Workers (free tier works)
+- Every vessel is a standalone git repo — fork it, customize it, deploy it to Cloudflare Workers (free tier)
 - BYOK — bring any LLM provider (DeepSeek, OpenAI, Anthropic, local Ollama, 20+ options)
-- Zero API keys in code — all secrets in Cloudflare's Secrets Store
-- 20 shared equipment modules (trust calculator, crystal cache, PII detection, dice roller, tutor engine, memory tiers...)
+- Zero API keys in code — all secrets in your Cloudflare account
+- 20 shared equipment modules (trust calculator, crystal cache, PII detection, dice roller, tutor engine, hot/warm/cold memory tiers...)
 - MIT licensed
 
-**Quick start — deploy an AI classroom in 60 seconds:**
+**Deploy an AI classroom in 60 seconds:**
 
 ```bash
 git clone https://github.com/Lucineer/studylog-ai.git
