@@ -306,7 +306,8 @@ export default {
         'increments-fleet-trust','dead-reckoning-engine','cocapn-com',
         'healthlog-ai','travlog-ai','parentlog-ai','doclog-ai','artistlog-ai',
         'personlog-ai','musiclog-ai','reallog-ai','playerlog-ai',
-        'activelog-ai','activeledger-ai','petlog-ai'
+        'activelog-ai','activeledger-ai','petlog-ai',
+        'the-seed','become-ai','nexus-git-agent','self-evolve-ai'
       ]);
       const ghBase = 'https://raw.githubusercontent.com/Lucineer/';
       const results: Array<{id:string;vessel:any;status:number;error?:string}> = [];
@@ -376,6 +377,28 @@ export default {
       } catch (e: any) {
         return new Response(JSON.stringify({ error: e.message }), { status: 500, headers: j });
       }
+    }
+
+    // Archetype catalog — domain mapping for the-seed and bootcamp
+    if (path === '/api/archetypes') {
+      const archetypes = [
+        {domain:'coding',repo:'makerlog-ai',equip:['file-tree','git-integration','test-runner'],skills:['code-gen','refactor','debug'],open:'Aider',paid:'Claude Code'},
+        {domain:'research',repo:'personallog-ai',equip:['web-scraper','citation-tracker'],skills:['query-decomp','synthesis','fact-check'],open:'GPT Researcher',paid:'Perplexity'},
+        {domain:'robotics',repo:'nexus-git-agent',equip:['bytecode-vm','wire-protocol','safety-machine'],skills:['reflex','trust','coordination'],open:'LeRobot',paid:'Figure AI'},
+        {domain:'education',repo:'studylog-ai',equip:['socratic-engine','flashcards','crystal-graph'],skills:['teach-dont-tell','adaptive','spaced-rep'],open:'OpenMAIC',paid:'Khanmigo'},
+        {domain:'creative',repo:'dmlog-ai',equip:['storyboard','dice-roller','world-state'],skills:['narrative','branching','canon-check'],open:'ComfyUI',paid:'Runway'},
+        {domain:'tutoring',repo:'tutor-ai',equip:['lesson-planner','quiz-engine','progress-tracker'],skills:['adapt-level','examples','analogies'],open:'TutorGPT',paid:'VTS Editor'},
+        {domain:'business',repo:'businesslog-ai',equip:['crm','pipeline','analytics'],skills:['strategy','forecasting','negotiation'],open:'Chatwoot',paid:'Intercom Fin'},
+        {domain:'gaming',repo:'fleet-rpg',equip:['stat-system','encounter-engine','inventory'],skills:['balance','narration','reward-design'],open:'Mindstorms',paid:'Inworld AI'},
+        {domain:'fitness',repo:'healthlog-ai',equip:['workout-log','sleep-tracker','nutrition-db'],skills:['plan-adapt','injury-prevent','progress'],open:'Open Fit',paid:'Whoop'},
+        {domain:'cooking',repo:'cooklog-ai',equip:['recipe-db','ingredient-matcher','timer'],skills:['meal-plan','dietary-adapt','technique'],open:'RecipeRadar',paid:'SideChef'},
+        {domain:'legal',repo:'cocapn-lite',equip:['case-db','citation-network','contract-analyzer'],skills:['legal-reasoning','precedent','risk-id'],open:'Legal-NLP',paid:'Harvey AI'},
+        {domain:'finance',repo:'businesslog-ai',equip:['market-feed','portfolio','risk-calc'],skills:['allocation','rebalance','tax-loss'],open:'OpenBB',paid:'Wealthfront'},
+        {domain:'support',repo:'personallog-ai',equip:['ticket-system','knowledge-base','sentiment'],skills:['intent-class','resolution','escalation'],open:'Typebot',paid:'Zendesk AI'},
+        {domain:'npc',repo:'craftmind-herding',equip:['behavior-tree','dialogue','memory','emotion'],skills:['personality','context-aware','goal-driven'],open:'ChatHaruhi',paid:'Convai'},
+        {domain:'marketing',repo:'businesslog-ai',equip:['event-tracker','funnel','attribution'],skills:['channel-score','lead-score','roi-calc'],open:'Matomo',paid:'6sense'},
+      ];
+      return new Response(JSON.stringify({ archetypes }), { headers: j });
     }
 
     // Admin stats
