@@ -38,6 +38,7 @@ const VESSELS = [
   { id: 'booklog-ai', name: 'BookLog.ai', desc: 'Reading companion', color: '#a78bfa', icon: '📖' },
   { id: 'tutor-ai', name: 'Tutor.ai', desc: 'Personalized AI tutor', color: '#a855f7', icon: '🎓' },
   { id: 'fleet-rpg', name: 'Fleet RPG', desc: 'Stats = compute resources', color: '#ef4444', icon: '⚓' },
+  { id: 'dogmind-arena', name: 'DogMind Arena', desc: 'Train AI dog agents', color: '#d69e2e', icon: '🐕' },
 ];
 
 const SYSTEM_PROMPTS: Record<string, string> = {
@@ -186,6 +187,7 @@ ${VESSELS.map(v => '<a href="https://github.com/Lucineer/' + v.id + '" class="fi
 <a href="https://github.com/Lucineer/cocapn-equipment" class="fi"><div class="fic">🔧</div><div class="fit"><h4>Cocapn Equipment</h4><p>20 standalone modules</p></div><div class="fil">20 mods</div></a>
 <a href="https://luciddreamer-ai.casey-digennaro.workers.dev" class="fi"><div class="fic">🌙</div><div class="fit"><h4>LucidDreamer</h4><p>Infotainment stream</p></div><div class="fil">STREAM</div></a>
 <a href="https://fleet-rpg.casey-digennaro.workers.dev" class="fi"><div class="fic">⚓</div><div class="fit"><h4>Fleet RPG</h4><p>Stats = compute resources</p></div><div class="fil">PLAY</div></a>
+<a href="https://dogmind-arena.casey-digennaro.workers.dev" class="fi"><div class="fic">🐕</div><div class="fit"><h4>DogMind Arena</h4><p>Train AI dog agents</p></div><div class="fil">PLAY</div></a>
 <a href="https://github.com/Lucineer/fleet-orchestrator" class="fi"><div class="fic">🌐</div><div class="fit"><h4>Fleet Orchestrator</h4><p>Trust, bonds, event bus</p></div><div class="fil">LIVE</div></a>
 </div></div>
 <div class="ph"><h2>The Design Philosophy</h2>
