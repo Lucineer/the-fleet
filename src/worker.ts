@@ -186,7 +186,7 @@ a{color:#00E6D6;text-decoration:none}a:hover{opacity:.8}
 <div class="ci"><input id="inp" placeholder="Type a message..." disabled><button id="send" disabled onclick="doSend()">Send</button></div>
 <div class="hint">Honest cost: ~$0.00004/msg. Your key = your cost. Free credits = we cover it.</div>
 </div></div>
-<div class="fs"><h2>The Fleet</h2><div class="fl">
+<div class="fs"><h2>The Fleet</h2><div class="fl" id="fleetGrid">
 ${VESSELS.map(v => '<a href="https://github.com/Lucineer/' + v.id + '" class="fi"><div class="fic">' + v.icon + '</div><div class="fit"><h4>' + v.name + '</h4><p>' + v.desc + '</p></div><div class="fil">LIVE</div></a>').join('')}
 <a href="https://github.com/Lucineer/capitaine" class="fi"><div class="fic">⚓</div><div class="fit"><h4>Capitaine</h4><p>Flagship — papers, onboarding</p></div><div class="fil">LIVE</div></a>
 <a href="https://github.com/Lucineer/git-agent" class="fi"><div class="fic">🤖</div><div class="fit"><h4>Git-Agent</h4><p>Agent kernel — TUI wizard</p></div><div class="fil">LIVE</div></a>
@@ -194,8 +194,12 @@ ${VESSELS.map(v => '<a href="https://github.com/Lucineer/' + v.id + '" class="fi
 <a href="https://luciddreamer-ai.casey-digennaro.workers.dev" class="fi"><div class="fic">🌙</div><div class="fit"><h4>LucidDreamer</h4><p>Infotainment stream</p></div><div class="fil">STREAM</div></a>
 <a href="https://fleet-rpg.casey-digennaro.workers.dev" class="fi"><div class="fic">⚓</div><div class="fit"><h4>Fleet RPG</h4><p>Stats = compute resources</p></div><div class="fil">PLAY</div></a>
 <a href="https://dogmind-arena.casey-digennaro.workers.dev" class="fi"><div class="fic">🐕</div><div class="fit"><h4>DogMind Arena</h4><p>Train AI dog agents</p></div><div class="fil">PLAY</div></a>
+<a href="https://the-seed.casey-digennaro.workers.dev" class="fi"><div class="fic">🌱</div><div class="fit"><h4>The Seed</h4><p>One repo to become them all</p></div><div class="fil">EVOLVE</div></a>
+<a href="https://become-ai.casey-digennaro.workers.dev" class="fi"><div class="fic">🔮</div><div class="fit"><h4>Become</h4><p>Captain-to-cocapn bootcamp</p></div><div class="fil">BOOTCAMP</div></a>
+<a href="https://nexus-git-agent.casey-digennaro.workers.dev" class="fi"><div class="fic">🤖</div><div class="fit"><h4>Nexus Bridge</h4><p>Edge intelligence fleet</p></div><div class="fil">EDGE</div></a>
+<a href="https://self-evolve-ai.casey-digennaro.workers.dev" class="fi"><div class="fic">🧬</div><div class="fit"><h4>Self-Evolve</h4><p>Branch-based A/B mutations</p></div><div class="fil">EVOLVE</div></a>
 <a href="https://github.com/Lucineer/fleet-orchestrator" class="fi"><div class="fic">🌐</div><div class="fit"><h4>Fleet Orchestrator</h4><p>Trust, bonds, event bus</p></div><div class="fil">LIVE</div></a>
-</div></div>
+</div><p id="fleetCount" style="color:#555570;font-size:.75rem;text-align:center;margin-top:.5rem"></p></div>
 <div class="ph"><h2>The Design Philosophy</h2>
 <blockquote>The repo IS the agent. Not an app that uses AI — the repository itself is a living entity that grows, learns, and communicates.</blockquote>
 <p>Equipment over features. Don't build bigger agents. Equip them.</p>
@@ -262,6 +266,25 @@ async function earnAd(){try{const r=await fetch("/api/earn",{method:"POST",heade
 async function earnTut(){try{const r=await fetch("/api/earn",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type:"tutorial"})});const d=await r.json();credits=d.credits;upUI();document.getElementById("earnBody").innerHTML="<h4 style='color:#00E6D6'>Equipment Protocol</h4><p>Don't build bigger agents — equip them. A fishing bot's engagement engine becomes a legal research tool's pacing module.</p><p style='color:#1FCB58'>+2 credits!</p><a href='https://github.com/Lucineer/capitaine/tree/master/docs' style='color:#00E6D6;font-size:.8rem'>Read all papers →</a>"}catch{}}
 document.getElementById("inp").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();doSend()}});
 init();
+// Fetch fleet discovery and append vessels
+fetch('/api/discover').then(r=>r.json()).then(d=>{
+  const grid=document.getElementById('fleetGrid');
+  const count=document.getElementById('fleetCount');
+  if(grid&&d.healthy){
+    const existing=new Set();
+    grid.querySelectorAll('.fi').forEach(el=>{const h4=el.querySelector('h4');if(h4)existing.add(h4.textContent)});
+    d.healthy.forEach(v=>{
+      if(!existing.has(v.vessel.displayName)){
+        const caps=(v.vessel.capabilities||[]).slice(0,2).join(', ');
+        const url=v.vessel.deployment?.url||('https://github.com/Lucineer/'+v.id);
+        const a=document.createElement('a');a.href=url;a.className='fi';
+        a.innerHTML='<div class="fic">🌊</div><div class="fit"><h4>'+v.vessel.displayName+'</h4><p>'+(caps||v.id)+'</p></div><div class="fil">LIVE</div>';
+        grid.appendChild(a);
+      }
+    });
+    if(count)count.textContent=d.discovered+' vessels discovered, '+d.healthy.length+' healthy';
+  }
+}).catch(()=>{});
 </script></body></html>`;
 }
 
