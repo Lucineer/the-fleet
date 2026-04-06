@@ -1,0 +1,39 @@
+{
+  "name": "the-fleet",
+  "displayName": "The Fleet",
+  "version": "1.0.0",
+  "type": "cocapn-vessel",
+  "description": "The Fleet",
+  "icon": "\ud83d\udea2",
+  "color": "#7c3aed",
+  "category": "infrastructure",
+  "capabilities": [
+    "playground",
+    "vessels"
+  ],
+  "secrets": {
+    "DEEPSEEK_API_KEY": {
+      "required": false,
+      "hint": "https://platform.deepseek.com/api_keys"
+    },
+    "DEEPINFRA_API_KEY": {
+      "required": false,
+      "hint": "https://deepinfra.com/dashboard/keys"
+    },
+    "SILICONFLOW_API_KEY": {
+      "required": false,
+      "hint": "https://cloud.siliconflow.cn"
+    }
+  },
+  "endpoints": {
+    "health": "/health"
+  },
+  "deployment": {
+    "platform": "cloudflare-workers",
+    "minPlan": "free"
+  },
+  "local": {
+    "supported": true,
+    "port": 8787
+  }
+}
