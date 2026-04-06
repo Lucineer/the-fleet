@@ -292,6 +292,44 @@ export default {
     }
 
     // Playground (credit-gated, our key)
+    // Fleet discovery — fetches vessel.json from GitHub repos
+    if (path === '/api/discover') {
+      const known = VESSELS.map(v => v.id).concat([
+        'cocapn-ai','capitaine','git-agent','fleet-orchestrator','luciddreamer-ai',
+        'cocapn-equipment','cocapn-lite','actualizer-ai','edgenative-ai',
+        'increments-fleet-trust','dead-reckoning-engine','cocapn-com',
+        'healthlog-ai','travlog-ai','parentlog-ai','doclog-ai','artistlog-ai',
+        'personlog-ai','musiclog-ai','reallog-ai','playerlog-ai',
+        'activelog-ai','activeledger-ai','petlog-ai'
+      ]);
+      const ghBase = 'https://raw.githubusercontent.com/Lucineer/';
+      const results: Array<{id:string;vessel:any;status:number;error?:string}> = [];
+      const batches = [];
+      for (let i = 0; i < known.length; i += 10) batches.push(known.slice(i, i + 10));
+      for (const batch of batches) {
+        const settled = await Promise.allSettled(batch.map(async (id) => {
+          try {
+            const r = await fetch(ghBase + id + '/main/vessel.json', { signal: AbortSignal.timeout(3000) });
+            if (r.ok) { const vessel = await r.json(); return { id, vessel, status: r.status }; }
+            const r2 = await fetch(ghBase + id + '/master/vessel.json', { signal: AbortSignal.timeout(3000) });
+            if (r2.ok) { const vessel = await r2.json(); return { id, vessel, status: r2.status }; }
+            return { id, vessel: null, status: 404, error: 'Not in repo' };
+          } catch (e: any) { return { id, vessel: null, status: 0, error: e.message?.slice(0, 50) }; }
+        }));
+        for (const s of settled) {
+          if (s.status === 'fulfilled') results.push(s.value);
+        }
+      }
+      const healthy = results.filter(r => r.status === 200);
+      return new Response(JSON.stringify({
+        total: known.length,
+        discovered: results.length,
+        healthy: healthy.length,
+        vessels: healthy.map(r => ({ id: r.id, ...r.vessel })),
+        unhealthy: results.filter(r => r.status !== 200).map(r => ({ id: r.id, status: r.status, error: r.error }))
+      }), { headers: j });
+    }
+
     if (path === '/api/play' && request.method === 'POST') {
       try {
         const body = await request.json();
