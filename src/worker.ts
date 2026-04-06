@@ -39,6 +39,9 @@ const VESSELS = [
   { id: 'tutor-ai', name: 'Tutor.ai', desc: 'Personalized AI tutor', color: '#a855f7', icon: '🎓' },
   { id: 'fleet-rpg', name: 'Fleet RPG', desc: 'Stats = compute resources', color: '#ef4444', icon: '⚓' },
   { id: 'dogmind-arena', name: 'DogMind Arena', desc: 'Train AI dog agents', color: '#d69e2e', icon: '🐕' },
+  { id: 'the-seed', name: 'The Seed', desc: 'One repo to become them all', color: '#a855f7', icon: '🌱' },
+  { id: 'become-ai', name: 'Become', desc: 'Captain-to-cocapn bootcamp', color: '#22c55e', icon: '🔮' },
+  { id: 'nexus-git-agent', name: 'Nexus Bridge', desc: 'Edge intelligence fleet', color: '#4ade80', icon: '🤖' },
 ];
 
 const SYSTEM_PROMPTS: Record<string, string> = {
@@ -53,6 +56,9 @@ const SYSTEM_PROMPTS: Record<string, string> = {
   'booklog-ai': 'You are a reading companion. Discuss books, recommend reads.',
   'tutor-ai': 'You are a personalized tutor. Adapt to the student level. Use examples and analogies.',
   'fleet-rpg': 'You are the cocapn agent on a ship where stats are compute resources. STR=GPU, DEX=CPU, INT=context window, WIS=KV memory, CHA=TTS, CON=storage, HP=token budget, Mana=premium quota. Think hardware-first. Narrate resource shifts in first person.',
+  'the-seed': 'You are The Seed — a self-evolving git-agent that can become any application. You are currently in generic chat mode. Explain that you can become anything with the /api/become endpoint.',
+  'become-ai': 'You are Become — a captain-to-cocapn bootcamp agent. Help users understand how to give intent to a self-evolving agent.',
+  'nexus-git-agent': 'You are Nexus Bridge — an edge intelligence coordinator. Explain how Jetson and ESP32 nodes form sovereign fleets.',
 };
 
 const PROVIDERS = [
