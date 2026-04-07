@@ -294,7 +294,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
     const j = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
-    const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;";
+    const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';";
 
     if (path === '/') return new Response(landingHtml(), { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': csp } });
     if (path === '/health') return new Response(JSON.stringify({ status: 'ok', vessel: 'the-fleet', vessels: VESSELS.length, timestamp: Date.now() }), { headers: j });
