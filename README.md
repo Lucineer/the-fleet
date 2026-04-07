@@ -1,55 +1,52 @@
-# The Fleet
+# The Fleet — Over 60 Composable AI Vessels
 
-An open-source agent runtime and fleet protocol for building composable AI agents. Share and reuse modular components across different agents without reinventing common patterns.
+You fork a working AI vessel and deploy it in minutes. This is an open-source collection of specialized agents that share modular capabilities through a common equipment protocol. Each vessel runs standalone on Cloudflare Workers.
 
-## Why This Exists
-
-When building AI agents, developers often solve the same problems independently: managing context windows, implementing memory systems, handling model errors, and controlling pacing. The Fleet provides a way to share these solutions as reusable modules that any agent can load and use.
-
-For example:
-- A game agent's engagement patterns become a pacing module
-- An education agent's questioning approach becomes a reasoning skill  
-- A narrative agent's session management becomes reusable infrastructure
-
-These components can be combined in new ways by entirely different applications. The ecosystem grows through shared development.
-
-## What It Is
-
-The Fleet is an open agent runtime running on Cloudflare Workers. It includes:
-- **60+ production-ready agent vessels** - fully forkable and customizable
-- **Equipment protocol** - standardized module system for sharing capabilities
-- **Zero mandatory infrastructure costs** - runs entirely on Cloudflare Workers
-- **MIT licensed** - no commercial restrictions or platform fees
-
-[Try the live playground →](https://the-fleet.casey-digennaro.workers.dev)
-
-### Core Features
-- **Equipment Protocol**: Load modules from any vessel into any other vessel
-- **Fork-First Design**: Every vessel is a standalone git repository
-- **Zero Keys In Code**: API keys live in Cloudflare account, not in source
-- **Bring Your Own Model**: Use any of 20+ LLM providers
-- **MIT Licensed**: Fully open source with no usage restrictions
-
-## Quick Start
-
-1. **Fork a vessel** from the [playground](https://the-fleet.casey-digennaro.workers.dev)
-2. **Deploy to Cloudflare Workers** using the included `wrangler.toml`
-3. **Add API keys** in your Cloudflare dashboard secrets
-4. **Customize** by modifying equipment or adding new capabilities
-
-Your forked vessel runs independently but can still load equipment from the broader fleet.
-
-## Limitations
-
-The current implementation requires Cloudflare Workers for deployment. While this provides zero-cost scaling and global distribution, it means the runtime is specific to this platform. Future versions may support additional deployment targets.
-
-## Attribution
-
-The Fleet is developed by Superinstance & Lucineer (DiGennaro et al.). This is community-driven open source software - contributions and forks are encouraged.
+[Try the live playground →](https://the-fleet.casey-digennaro.workers.dev) ✨
 
 ---
 
-<div>
-  <a href="https://the-fleet.casey-digennaro.workers.dev">The Fleet</a> • 
-  <a href="https://cocapn.ai">Cocapn</a>
-</div>
+## Why This Exists
+Most agent tutorials make you rebuild basic components from scratch. This exists so you only have to build the unique part. Start with a working tutor, coder, or game master, and adapt it.
+
+---
+
+## Quick Start
+1.  **Fork a vessel** from the [playground](https://the-fleet.casey-digennaro.workers.dev). Try `studylog-ai` for tutoring or `makerlog-ai` for coding.
+2.  **Deploy it** with one click to Cloudflare Workers using the included `wrangler.toml`.
+3.  **Add API keys** as Cloudflare secrets. Your source code stays clean.
+4.  **Swap equipment** or write your own. Each vessel is a standalone Worker.
+
+---
+
+## Features
+*   **Forkable Agents**: Over 60 pre-configured agents for education, gaming, coding, and utilities.
+*   **Composable Equipment**: A common protocol lets you reuse modules—like memory or pacing logic—across different vessels.
+*   **Zero Infrastructure Cost**: Runs on Cloudflare Workers' free tier. You control deployment.
+*   **Model Agnostic**: Configure it for OpenAI, Anthropic, DeepSeek, Moonshot, and over 20 other providers.
+*   **No Dependencies**: There is no framework to install. Each vessel is a single, self-contained script.
+*   **MIT Licensed**: Use it for any purpose, commercial or private.
+
+---
+
+## What Makes This Different
+1.  You fork a complete, working agent. There is no `npm install` and zero npm dependencies.
+2.  Equipment modules are truly portable. Use the context management from a trivia bot in your study assistant.
+3.  It runs on your Cloudflare account. We cannot access, control, or turn off your deployed vessels.
+
+---
+
+## Limitations
+*   **Cold Starts**: As with any serverless platform, vessels can experience cold start delays, typically between 50-500ms, depending on complexity and inactivity periods.
+*   **CPU Time**: Vessels must complete work within Cloudflare Workers' CPU time limit (currently 10ms on the free plan). Long-running operations need to be broken into multiple turns.
+
+---
+
+## License
+MIT License. Do whatever you want with this.
+
+---
+
+Attribution: Superinstance and Lucineer (DiGennaro et al.)
+
+<div style="text-align:center;padding:16px;color:#64748b;font-size:.8rem"><a href="https://the-fleet.casey-digennaro.workers.dev" style="color:#64748b">The Fleet</a> &middot; <a href="https://cocapn.ai" style="color:#64748b">Cocapn</a></div>
