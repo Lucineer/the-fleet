@@ -42,6 +42,15 @@ const VESSELS = [
   { id: 'the-seed', name: 'The Seed', desc: 'One repo to become them all', color: '#a855f7', icon: '🌱' },
   { id: 'become-ai', name: 'Become', desc: 'Captain-to-cocapn bootcamp', color: '#22c55e', icon: '🔮' },
   { id: 'nexus-git-agent', name: 'Nexus Bridge', desc: 'Edge intelligence fleet', color: '#4ade80', icon: '🤖' },
+  { id: 'self-evolve-ai', name: 'Self-Evolve', desc: 'Self-modifying git-agent', color: '#22c55e', icon: '🧬' },
+  { id: 'ideation-engine', name: 'Ideation Engine', desc: 'Visual bubble ideation', color: '#f59e0b', icon: '💡' },
+  { id: 'vessel-tuner', name: 'Vessel Tuner', desc: 'Fleet profiler & optimizer', color: '#22c55e', icon: '🔧' },
+  { id: 'epiphany-engine', name: 'Epiphany', desc: 'Problem decomposition', color: '#818cf8', icon: '⚡' },
+  { id: 'loop-closure', name: 'Loop Closure', desc: 'Meta-orchestration', color: '#22c55e', icon: '🔄' },
+  { id: 'fleet-identity', name: 'Fleet Identity', desc: 'Fleet self-awareness', color: '#a855f7', icon: '🧠' },
+  { id: 'collective-mind', name: 'Collective Mind', desc: 'Cross-vessel patterns', color: '#c084fc', icon: '🌐' },
+  { id: 'emergence-bus', name: 'Emergence Bus', desc: 'Fleet event bus', color: '#06b6d4', icon: '📡' },
+  { id: 'context-broker', name: 'Context Broker', desc: 'Goal-scoped context', color: '#f472b6', icon: '🎯' },
 ];
 
 const SYSTEM_PROMPTS: Record<string, string> = {
