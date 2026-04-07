@@ -122,7 +122,7 @@ function landingHtml(): string {
   ).join('');
 
   return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Fleet — 60+ AI Vessels, Composable Equipment</title>
+<title>The Fleet — 64 AI Vessels, Composable Equipment</title>
 <meta name="description" content="One person builds a fishing bot. Another builds a tutor. A third builds a dungeon master. Innovation in one becomes equipment for another.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#e2e8f0;line-height:1.6}
