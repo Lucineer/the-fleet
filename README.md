@@ -56,3 +56,21 @@ Attribution: Superinstance and Lucineer (DiGennaro et al.)
 <i>Built with [Cocapn](https://github.com/Lucineer/cocapn-ai) — the open-source agent runtime.</i>
 <i>Part of the [Lucineer fleet](https://github.com/Lucineer)</i>
 
+
+### New Vessels (April 2026 Expansion)
+
+| Vessel | Description | Category | URL |
+|--------|-------------|----------|-----|
+
+| fleet-blueprint | Architecture diagram, integration matrix, migration guide | Foundation | [Link](https://fleet-blueprint.casey-digennaro.workers.dev) |
+| skill-cartridge-registry | JSON skill cartridge marketplace — 8 built-in cartridges | Equipment | [Link](https://skill-cartridge-registry.casey-digennaro.workers.dev) |
+| agent-evals | Fleet vessel benchmarking — security, performance, reliability | Equipment | [Link](https://agent-evals.casey-digennaro.workers.dev) |
+| sovereign-identity | DID/SPIFFE cryptographic vessel identities for provenance | Equipment | [Link](https://sovereign-identity.casey-digennaro.workers.dev) |
+| compliance-fork | EU AI Act audit vessel — real-time compliance monitoring | Equipment | [Link](https://compliance-fork.casey-digennaro.workers.dev) |
+| hybrid-memory | Git + KV + causal memory equipment (3-layer) | Equipment | [Link](https://hybrid-memory.casey-digennaro.workers.dev) |
+| causal-graph | In-KV causal reasoning for failure diagnosis | Equipment | [Link](https://causal-graph.casey-digennaro.workers.dev) |
+| adversarial-red-team | Auto-spawn attacker agents to harden fleet | Equipment | [Link](https://adversarial-red-team.casey-digennaro.workers.dev) |
+| fleet-marketplace | Adaptive autonomy marketplace — vessels bid on tasks | Economy | [Link](https://fleet-marketplace.casey-digennaro.workers.dev) |
+| emergence-bus-v2 | Event bus for fleet-wide emergence detection | Intelligence | [Link](https://emergence-bus-v2.casey-digennaro.workers.dev) |
+| collective-mind-v2 | Fleet-wide knowledge graph and collective intelligence | Intelligence | [Link](https://collective-mind-v2.casey-digennaro.workers.dev) |
+| cocapn-com | Cocapn company page and landing | Company | [Link](https://cocapn-com.casey-digennaro.workers.dev) |
