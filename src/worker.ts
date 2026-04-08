@@ -306,6 +306,7 @@ export default {
     const csp = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';";
 
     if (path === '/') return new Response(landingHtml(), { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': csp } });
+    'X-Frame-Options': 'DENY',
     if (path === '/health') return new Response(JSON.stringify({ status: 'ok', vessel: 'the-fleet', vessels: VESSELS.length, timestamp: Date.now() }), { headers: j });
   if (path === '/vessel.json') { try { const vj = await import('./vessel.json', { with: { type: 'json' } }); return new Response(JSON.stringify(vj.default || vj), { headers: { 'Content-Type': 'application/json' } }); } catch { return new Response('{}', { headers: { 'Content-Type': 'application/json' } }); } }
 
