@@ -44,7 +44,9 @@ const VESSELS = [
   { id: 'nexus-git-agent', name: 'Nexus Bridge', desc: 'Edge intelligence fleet', color: '#4ade80', icon: '🤖' },
   { id: 'self-evolve-ai', name: 'Self-Evolve', desc: 'Self-modifying git-agent', color: '#22c55e', icon: '🧬' },
   { id: 'ideation-engine', name: 'Ideation Engine', desc: 'Visual bubble ideation', color: '#f59e0b', icon: '💡' },
-  { id: 'vessel-tuner', name: 'Vessel Tuner', desc: 'Fleet profiler & optimizer', color: '#22c55e', icon: '🔧' },
+  { id: 'vessel-tuner',
+        'cocapn-nexus', name: 'Vessel Tuner', desc: 'Fleet profiler & optimizer', color: '#22c55e', icon: '🔧' },
+  { id: 'cocapn-nexus', name: 'Cocapn Nexus', desc: 'Safety architecture from nexus-runtime v2', color: '#14b8a6', icon: '🔬' },
   { id: 'epiphany-engine', name: 'Epiphany', desc: 'Problem decomposition', color: '#818cf8', icon: '⚡' },
   { id: 'loop-closure', name: 'Loop Closure', desc: 'Meta-orchestration', color: '#22c55e', icon: '🔄' },
   { id: 'fleet-identity', name: 'Fleet Identity', desc: 'Fleet self-awareness', color: '#a855f7', icon: '🧠' },
@@ -122,7 +124,7 @@ function landingHtml(): string {
   ).join('');
 
   return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Fleet — 64 AI Vessels, Composable Equipment</title>
+<title>The Fleet — 65 AI Vessels, Composable Equipment</title>
 <meta name="description" content="One person builds a fishing bot. Another builds a tutor. A third builds a dungeon master. Innovation in one becomes equipment for another.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#e2e8f0;line-height:1.6}
